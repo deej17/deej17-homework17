@@ -12,9 +12,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-    useNewUrlParser: true
-});
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget";
+
+mongoose.connect(MONGODB_URI);
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
